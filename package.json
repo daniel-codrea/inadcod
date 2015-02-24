@@ -16,6 +16,7 @@
     "grunt-contrib-sass": "^0.7.3",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-image-resize": "^1.0.0",
     "grunt-mocha": "^0.4.10",
     "grunt-modernizr": "^0.5.2",
     "grunt-newer": "^0.7.0",
@@ -29,5 +30,8 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "grunt-favicons": "^0.6.4"
   }
 }

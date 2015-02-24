@@ -9,6 +9,8 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+  grunt.loadNpmTasks('grunt-favicons');
+  grunt.loadNpmTasks('grunt-image-resize');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -27,6 +29,35 @@ module.exports = function (grunt) {
 
     // Project settings
     config: config,
+    
+    favicons: {
+          options: {
+              trueColor: true,
+              appleTouchBackgroundColor: '#bb0000',
+              coast: true,
+              windowsTile: true,
+              tileBlackWhite: false,
+              tileColor: '#bb0000',
+              html: '.tmp/index.html',
+              HTMLPrefix: '/'
+          },
+          icons: {
+              src: '<%= config.app %>/images/favicon.png',
+              dest: '<%= config.dist %>/'
+          }
+      },
+
+      image_resize: {
+          resize: {
+              options: {
+                  quality: 0.7,
+                  height: '100%',
+                  overwrite: true
+              },
+              src: '<%= config.app %>/images/*.{jpg,jpeg}',
+              dest: '<%= config.dist %>/images/'
+          }
+      },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -327,10 +358,15 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>/.htaccess'
         }, {
           expand: true,
+          flatten: true,
           dot: true,
           cwd: '.',
-          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          dest: '<%= config.dist %>'
+          dest: '<%= config.dist %>/styles/fonts',
+          src: [
+            'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+            'bower_components/font-awesome/fonts/*.*',
+            'bower_components/roboto-fontface/fonts/*.*'
+            ]
         }]
       },
       styles: {
@@ -339,6 +375,18 @@ module.exports = function (grunt) {
         cwd: '<%= config.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      fonts: {
+        expand: true,
+        flatten: true,
+        dot: true,
+        cwd: '.',
+        dest: '.tmp/styles/fonts',
+        src: [
+          'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+          'bower_components/font-awesome/fonts/*.*',
+          'bower_components/roboto-fontface/fonts/*.*'
+           ]
       }
     },
 
@@ -363,14 +411,17 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'sass:server',
-        'copy:styles'
+        'copy:styles',
+        'copy:fonts'
       ],
       test: [
-        'copy:styles'
+        'copy:styles',
+        'copy:fonts'
       ],
       dist: [
         'sass',
         'copy:styles',
+        'copy:fonts',
         'imagemin',
         'svgmin'
       ]
@@ -419,8 +470,9 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'useminPrepare',
     'concurrent:dist',
+    'image_resize',
+    'useminPrepare',
     'autoprefixer',
     'concat',
     'cssmin',
@@ -429,6 +481,7 @@ module.exports = function (grunt) {
     'modernizr',
     'rev',
     'usemin',
+    'favicons',
     'htmlmin'
   ]);
 
