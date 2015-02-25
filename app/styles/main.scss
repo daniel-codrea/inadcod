@@ -137,7 +137,6 @@ section {
 	display: inline-block;
 	position: relative;
 	text-align: left;
-  font-weight: 300;
 
 	b {
 		display: inline-block;
@@ -145,6 +144,7 @@ section {
 		white-space: nowrap;
 		left: 0;
 		top: 0;
+    font-weight: 400;
 
 		&.is-visible {
 			position: relative;
@@ -192,7 +192,7 @@ xloading-bar
 
 		&.is-loading::after {
 			width: 100%;
-			@include transition(width 3s);
+			@include transition(width 4s);
 		}
 	}
 
@@ -206,6 +206,36 @@ xloading-bar
 			top: 0;
 		}
 	}
+}
+
+/* Testimonials carousels */
+.carousel-inner .item img {
+	width:100%;
+	height:100%;
+}
+.item .thumbnail {
+	margin-bottom:0;
+}
+.carousel-control.left, .carousel-control.right {
+	background-image:none !important;
+}
+.carousel-control {
+	background:	#ddd;
+	color:#999;
+	padding: 4px 0;
+	width:26px;
+	top:auto;	
+	left:auto;
+	bottom:0;
+	opacity:1;
+	text-shadow:none;
+}
+.carousel-control.right {
+	right:10px;
+}
+
+.carousel-control.left {
+	right: 40px;
 }
 
 

@@ -11,7 +11,7 @@ $(window).scroll(function(){
 });
 
 $(function() {
-    $('a[href*=#]:not([href=#])').click(function() {
+    $('a[href*=#]:not([href=#], .noJumpLink)').click(function() {
         if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -24,6 +24,11 @@ $(function() {
         }
     });
 });
+
+//set animation timing
+var animationDelay = 2500,
+    barAnimationDelay = 3800,
+    barWaiting = barAnimationDelay - 3000; 
 
 function switchWord($oldWord, $newWord) {
   $oldWord.removeClass('is-visible').addClass('is-hidden');
@@ -41,12 +46,6 @@ function hideWord($word) {
   setTimeout(function(){ hideWord(nextWord); }, barAnimationDelay);
   setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading'); }, barWaiting);
 }
-
-//set animation timing
-var animationDelay = 2500;
-//loading bar effect
-var barAnimationDelay = 3800;
-var barWaiting = barAnimationDelay - 3000; //3000 is the duration of the transition on the loading bar - set in the scss/css file
 
 function animateHeadline($headlines) {
   var duration = animationDelay;
@@ -66,5 +65,9 @@ function initHeadline() {
 }
 
 initHeadline();
+
+$('#myCarousel').carousel({
+  interval:   8000
+});
 
 
