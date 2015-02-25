@@ -29,13 +29,17 @@
     <![endif]-->
   <div class="header">
     <ul class="nav nav-pills pull-right">
-      <li><a href="#home">Home</a>
+      <li role="presentation" class="active">
+        <a href="#home">Home</a>
       </li>
-      <li><a href="#about">About</a>
+      <li role="presentation">
+        <a href="#about">About</a>
       </li>
-      <li><a href="#portfolio">Portfolio</a>
+      <li role="presentation">
+        <a href="#portfolio">Portfolio</a>
       </li>
-      <li><a href="#contact">Contact</a>
+      <li role="presentation">
+        <a href="#contact">Contact</a>
       </li>
     </ul>
     <h3 class="text-muted">
@@ -61,28 +65,40 @@
           <div id="myCarousel" class="carousel slide">
             <!-- Indicators -->
             <div class="carousel-inner">
-              <div class="item active">
+              <div class="item active clearfix">
+                <div class="testimonial-img pull-left">
+                  <img src="images/logo-promotiielectrocasnice.png" alt="PromotiiElectrocasnice" />
+                </div>
                 <blockquote>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                  <p>I have only words of praise for the fruitful collaboration that we have.</p>
+                  <!-- p>Nu pot sa am decat cuvinte de lauda pentru colaborarea fructuoasa pe care o avem.</p -->
+                  <small>Adrian Frim <cite title="Source Title">SC Fast&amp;Co SRL</cite></small>
                 </blockquote>
               </div>
-              <div class="item">
+              <div class="item clearfix">
+                <div class="testimonial-img pull-left">
+                  <img src="images/logo-addconcept.png" alt="AddConcept" />
+                </div>
                 <blockquote>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                  <p>I absolutely recommend Daniel to anyone who is in need of a professional website.</p>
+                  <!-- p>Recomand absolut oricui care are nevoie de un website profesional.</p -->
+                  <small>Adrian Petrus <cite title="Source Title">SC AddConcept SRL</cite></small>
                 </blockquote>
               </div>
-              <div class="item">
+              <div class="item clearfix">
+                <div class="testimonial-img pull-left">
+                  <img src="images/logo-seeweb.png" alt="SeeWebSolutions" />
+                </div>
                 <blockquote>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                  <p>The promptness and professionalism that I encountered were spotless.</p>
+                  <!-- p>Promptitudinea si profesionalismul de care am avut parte au fost impecabile.</p -->
+                  <small>Istvan Dembrovszky <cite title="Source Title">Sc SeeWebSolutions SRL</cite></small>
                 </blockquote>
               </div>
             </div>
             <div class="carousel-controls">
-              <a class="carousel-control left noJumpLink" href="#myCarousel" data-slide="prev"><span class="fa fa-angle-double-left"></span></a>
-              <a class="carousel-control right noJumpLink" href="#myCarousel" data-slide="next"><span class="fa fa-angle-double-right"></span></a>
+              <a class="carousel-control left noJumpLink" href="#myCarousel" data-slide="prev"><i class="fa fa-angle-double-left"></i></a>
+              <a class="carousel-control right noJumpLink" href="#myCarousel" data-slide="next"><i class="fa fa-angle-double-right"></i></a>
             </div>
           </div>
         </div>
@@ -90,11 +106,22 @@
     </div>
   </section>
   <section id="about">
-    <p>Lorem ipsum dolor sit amet, eos id sint iusto viris, ei qui omnesque dissentiet. Pro dolore veritus assentior cu, noluisse praesent inciderint pro et. Est ei choro quidam quaestio, sed dicunt aliquid eruditi no, in scaevola delicata nec. Velit dicant ex mea, id vocent dissentiunt ius.</p>
-    <p>Vel cu voluptua invidunt iracundia. Quem inciderint persequeris ei his, mel id doming abhorreant, ad nec conceptam efficiendi. Vide consul probatus ei pri. Duo ea oporteat prodesset, sed tempor reprehendunt ei, salutatus quaerendum ne mel.</p>
-    <p>Ut ius aperiri praesent, id pro senserit reformidans. Ei nusquam erroribus repudiandae cum, nisl bonorum eu vel. Sed ut sint graecis, at tamquam meliore adipisci mei. Vis enim blandit molestiae no, usu eu dicit euripidis definitiones, ipsum soluta referrentur per ad. Est stet propriae posidonium id, mel eu probo nihil.</p>
-    <p>Vel no veri patrioque, id sea putant disputando appellantur. Duis iusto utroque qui et, an ocurreret constituam ius, nec ad dolores ponderum percipitur. Eum semper docendi posidonium id. Nulla nullam audiam ad duo, in malis libris corrumpit ius. Esse aliquando pri ex. Ne tollit tempor mei, nec te munere democritum persequeris. An pri voluptua senserit reformidans, nec ex everti habemus, audiam malorum postulant ex nam.</p>
-    <p>Id duo fabulas nominati scripserit, choro interesset vis in, duo ea lorem signiferumque. Duo in debitis consequuntur, duo delectus repudiandae an. Tantas fierent pri id, ubique diceret sit at, mel in unum perpetua. Has hinc iracundia prodesset ut, id docendi patrioque scribentur vim. Habemus splendide et sed, ex eam agam utinam deseruisse.</p>
+    <div class="container">
+      <div clas="row">
+        <div class="col-xs-12">
+          <div id="about-text">
+            <h3>Hi, I'm Daniel and I am a web and graphic designer based in Cluj Napoca, Romania. I specialise in front-end development and web design.</h3>
+            <p>I write perfectly semantic and seo friendly HTML5 code enhanced with CSS3 and jQuery, using best practice accessibility and the latest W3C web standards guidelines. All my websites are hand coded.</p>
+            <p>For building websites my weapons of choice are Photoshop, Illustrator and Fireworks for creating layouts, then SublimeText and/or Brackets to produce clean semantic HTML and CSS. For projects that require content management, my CMS of choice are Wordpress and Joomla.</p>
+            <p>I'm always learning new stuff and building on my prior knowledge, that's why most of my time is spent in front of my computer :)</p>
+            <p>I am currently available for freelance work. Tel: 0728 675400.</p>
+          </div>
+          <div id="about-img">
+            <img src="images/me.png" alt="Daniel Codrea" />
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
   </section>
   <section id="portfolio">
     <p>Lorem ipsum dolor sit amet, eos id sint iusto viris, ei qui omnesque dissentiet. Pro dolore veritus assentior cu, noluisse praesent inciderint pro et. Est ei choro quidam quaestio, sed dicunt aliquid eruditi no, in scaevola delicata nec. Velit dicant ex mea, id vocent dissentiunt ius.</p>
@@ -104,11 +131,43 @@
     <p>Id duo fabulas nominati scripserit, choro interesset vis in, duo ea lorem signiferumque. Duo in debitis consequuntur, duo delectus repudiandae an. Tantas fierent pri id, ubique diceret sit at, mel in unum perpetua. Has hinc iracundia prodesset ut, id docendi patrioque scribentur vim. Habemus splendide et sed, ex eam agam utinam deseruisse.</p>
   </section>
   <section id="contact">
-    <p>Lorem ipsum dolor sit amet, eos id sint iusto viris, ei qui omnesque dissentiet. Pro dolore veritus assentior cu, noluisse praesent inciderint pro et. Est ei choro quidam quaestio, sed dicunt aliquid eruditi no, in scaevola delicata nec. Velit dicant ex mea, id vocent dissentiunt ius.</p>
-    <p>Vel cu voluptua invidunt iracundia. Quem inciderint persequeris ei his, mel id doming abhorreant, ad nec conceptam efficiendi. Vide consul probatus ei pri. Duo ea oporteat prodesset, sed tempor reprehendunt ei, salutatus quaerendum ne mel.</p>
-    <p>Ut ius aperiri praesent, id pro senserit reformidans. Ei nusquam erroribus repudiandae cum, nisl bonorum eu vel. Sed ut sint graecis, at tamquam meliore adipisci mei. Vis enim blandit molestiae no, usu eu dicit euripidis definitiones, ipsum soluta referrentur per ad. Est stet propriae posidonium id, mel eu probo nihil.</p>
-    <p>Vel no veri patrioque, id sea putant disputando appellantur. Duis iusto utroque qui et, an ocurreret constituam ius, nec ad dolores ponderum percipitur. Eum semper docendi posidonium id. Nulla nullam audiam ad duo, in malis libris corrumpit ius. Esse aliquando pri ex. Ne tollit tempor mei, nec te munere democritum persequeris. An pri voluptua senserit reformidans, nec ex everti habemus, audiam malorum postulant ex nam.</p>
-    <p>Id duo fabulas nominati scripserit, choro interesset vis in, duo ea lorem signiferumque. Duo in debitis consequuntur, duo delectus repudiandae an. Tantas fierent pri id, ubique diceret sit at, mel in unum perpetua. Has hinc iracundia prodesset ut, id docendi patrioque scribentur vim. Habemus splendide et sed, ex eam agam utinam deseruisse.</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="visitorName" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="visitorName" placeholder="Full name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="visitorEmail" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="visitorEmail" placeholder="Email address">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="visitorPhone" class="col-sm-2 control-label">Phone</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="visitorPhone" placeholder="Phone number">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="visitorMessage" class="col-sm-2 control-label">Message</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" id="visitorMessage" placeholder="Message content" rows="5"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Send</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
   <div class="container">
 

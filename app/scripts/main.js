@@ -8,6 +8,9 @@ $(window).scroll(function(){
   } else {
     $('.header').removeClass('sticky-header');
   }
+  if (scrollTop === 0) {
+    $('.nav li').removeClass('active');
+  }
 });
 
 $(function() {
@@ -23,6 +26,10 @@ $(function() {
             }
         }
     });
+  $('.nav a').on('click', function(){
+    $('.nav li').removeClass('active');
+    $(this).parent().addClass('active');
+  });
 });
 
 //set animation timing
@@ -67,7 +74,7 @@ function initHeadline() {
 initHeadline();
 
 $('#myCarousel').carousel({
-  interval:   8000
+  interval:   400000
 });
 
 

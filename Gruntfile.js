@@ -11,6 +11,7 @@
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-favicons');
   grunt.loadNpmTasks('grunt-image-resize');
+  grunt.renameTask('image_resize', 'imageResize');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -380,7 +381,7 @@ module.exports = function (grunt) {
         expand: true,
         flatten: true,
         dot: true,
-        cwd: '.',
+        cwd: '',
         dest: '.tmp/styles/fonts',
         src: [
           'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
