@@ -13,6 +13,9 @@ $(window).scroll(function(){
   }
 });
 
+var currentDate = new Date();
+$('#currentYear').html((currentDate).getFullYear());
+
 $(function() {
     $('a[href*=#]:not([href=#], .noJumpLink)').click(function() {
         if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
@@ -74,7 +77,7 @@ function initHeadline() {
 initHeadline();
 
 $('#myCarousel').carousel({
-  interval:   400000
+  interval:   4000
 });
 
 
