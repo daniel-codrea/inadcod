@@ -6,5 +6,12 @@
     "modernizr": "~2.8.2",
     "font-awesome": "~4.3.0",
     "roboto-fontface": "~0.2.7"
+  },
+  "devDependencies": {
+    "font-awesome": "~4.3.0",
+    "roboto-fontface": "~0.3.0"
+  },
+  "resolutions": {
+    "roboto-fontface": "~0.3.0"
   }
 }

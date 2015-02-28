@@ -1,11 +1,11 @@
-$font-path: "/styles/fonts/";
+$font-path: '../styles/fonts/';
 $icon-font-path: $font-path;
-$fa-font-path: $font-path;
-$roboto-font-path: $font-path;
+$fa-font-path: '../styles/fonts';
+$roboto-font-path: '../styles/fonts';
 
-@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
-@import "../bower_components/font-awesome/scss/font-awesome";
-@import "../bower_components/roboto-fontface/roboto-fontface";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
+@import "roboto-fontface/roboto-fontface.scss";
 
 @import "mixins";
 @import "variables";
@@ -83,17 +83,19 @@ a, a:hover, a:focus {
     margin: 0;
     line-height: 80px;
     display: none;
-  }
-  .nav li:first-child {
-    display: none;
+    img {
+      @include set(width, (xs: 220px, sm: 280px, md: 280px, lg: 280px) );
+      &.logo-small {
+        height: 38px;
+        width: 39px;
+        margin-top: 21px;
+      }
+    }
   }
   &.sticky-header {
     background-color: #2f3135;
     background-image: $background-image;
     h3 {
-      display: block;
-    }
-    .nav li:first-child {
       display: block;
     }
   }
@@ -117,9 +119,12 @@ a, a:hover, a:focus {
   }
 }
 
-.nav > li > a:focus {
-  color: #fff;
-  background-color: transparent;
+.nav > li > a {
+  @include set(padding, (xs: 10px 8px, sm: 10px 15px, md: 10px 15px, lg: 10px 15px) );
+  &:focus {
+    color: #fff;
+    background-color: transparent;
+  }
 }
 
 /* Custom page footer */
@@ -151,7 +156,7 @@ section {
   h1 {
     position: relative;
     top: 50%;
-    font-size: 65px;
+    @include set(font-size, (xs: 35px, sm: 45px, md: 55px, lg: 65px) );
     font-weight: 700;
     transform: translateY(-50%);
     margin: 0;
@@ -163,7 +168,7 @@ section {
       padding-top: 10px;
     }
     img {
-      width: 450px;
+      @include set(width, (xs: 250px, sm: 300px, md: 350px, lg: 450px) );
     }
   }
 }
@@ -233,35 +238,35 @@ section {
   padding: 50px 0;
   box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
   min-height: 0;
+  .carousel-control {
+    background: #ddd;
+    color: #bb0000;
+    padding: 1px 0;
+    width: 26px;
+    top: auto;
+    left: auto;
+    bottom: 0;
+    opacity: 1;
+    text-shadow: none;
+    border-radius: 2px;
+    &.left {
+      background-image: none !important;
+      right: 40px;
+    }
+    &.right {
+      background-image: none !important;
+      right: 10px;
+    }
+    &:focus, &:hover {
+      color: #bb0000;
+    }
+  }
 }
 
-.carousel-control {
-  background: #ddd;
-  color: #bb0000;
-  padding: 1px 0;
-  width: 26px;
-  top: auto;
-  left: auto;
-  bottom: 0;
-  opacity: 1;
-  text-shadow: none;
-  border-radius: 2px;
-  &.left {
-    background-image: none !important;
-    right: 40px;
-  }
-  &.right {
-    background-image: none !important;
-    right: 10px;
-  }
-  &:focus, &:hover {
-    color: #bb0000;
-  }
-}
 
 .testimonial-img {
   position: relative;
-  width: 300px;
+  @include set(width, (xs: 250px, sm: 200px, md: 300px, lg: 300px) );
   height: 125px;
   background: rgba(255, 255, 255, 0.85);
   overflow: hidden;
@@ -277,9 +282,10 @@ section {
 }
 
 .carousel-inner blockquote {
-  float: right;
-  width: calc(100% - 320px);
-  font-size: 24px;
+  @include set(float, (xs: left, sm: right, md: right, lg: right) );
+  @include set(width, (xs: 100%, sm: calc(100% - 220px), md: calc(100% - 320px), lg: calc(100% - 320px)) );
+  @include set(font-size, (xs: 16px, sm: 20px, md: 22px, lg: 24px) );
+  @include set(border-left, (xs: 0, sm: 5px solid #eeeeee, md: 5px solid #eeeeee, lg: 5px solid #eeeeee) );
   font-style: italic;
   small {
     font-style: normal;
@@ -300,18 +306,21 @@ section {
 }
 
 #about-text {
-  float: left;
-  width: calc(100% - 400px);
+  @include set(float, (xs: none, sm: left, md: left, lg: left) );
+  @include set(width, (xs: 100%, sm: calc(100% - 400px), md: calc(100% - 400px), lg: calc(100% - 400px)) );
   h3 {
-    font-size: 30px;
+    @include set(font-size, (xs: 18px, sm: 24px, md: 30px, lg: 30px) );
   }
   p {
-    font-size: 22px;
+    @include set(font-size, (xs: 14px, sm: 18px, md: 22px, lg: 22px) );
   }
 }
 
 #about-img {
-  float: right;
+  @include set(float, (xs: none, sm: right, md: right, lg: right) );
+  img {
+    @include set(width, (xs: 250px, sm: 380px, md: 380px, lg: 380px) );
+  }
 }
 
 /* Portfolio section */
@@ -321,12 +330,21 @@ section {
     text-align: center;
     font-size: 36px;
   }
+  h3.title {
+    text-align: center;
+    font-size: 26px;
+    margin: 0;
+    padding: 15px 0;
+    a {
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+    }
+  }
 }
 .grid {
 	position: relative;
 	clear: both;
 	margin: 0 auto;
-	padding: 1em 0 4em;
+	padding: 1em 0 1.5em;
 	max-width: 1000px;
 	list-style: none;
 	text-align: center;
@@ -335,10 +353,10 @@ section {
     float: left;
     overflow: hidden;
     margin: 10px 1%;
-    min-width: 320px;
+    min-width: 300px;
     max-width: 480px;
     max-height: 360px;
-    width: 55%;
+    width: 48%;
     height: auto;
     background: #303030;
     text-align: center;
@@ -427,9 +445,23 @@ section {
   }
 }
 
-
-
-
+.portfolio-modal {
+  .modal-content {
+    background-color: transparent;
+  }
+  .close {
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+    opacity: 0.9;
+  }
+  .modal-header, .modal-body {
+    padding: 0;
+  }
+  .modal-header {
+    padding: 15px 0;
+    border-bottom: 0;
+  }
+}
 
 /* Media queries */
 @media screen and (max-width: 50em) {
@@ -447,17 +479,16 @@ section {
 
 /* Contact section */
 #contact {
-  height: calc(100% - 80px);
+  height: auto;
   min-height: 0;
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  iframe {
-    height: 100%;
-    width: 100%;
-  }
+  background: url(../images/cluj.jpg) no-repeat center center;
+  background-size: cover;
+  @include set(padding, (xs: 20px 0, sm: 40px 0, md: 50px 0, lg: 50px 0) );
   .container {
     margin: 50px auto;
-    padding: 20px 10px;
+    padding: 20px 15px;
     background: rgba(0, 0, 0, 0.85);
   }
   a {
@@ -466,27 +497,17 @@ section {
   }
 }
 
-.contact_layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.contact_layer-base {
-  z-index: 10;
-}
-
-.contact_layer-back {
-  z-index: 5;
-}
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
   .footer {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-lg {
+    width: 1100px;
   }
 }

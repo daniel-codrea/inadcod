@@ -10,8 +10,6 @@
 
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-favicons');
-  grunt.loadNpmTasks('grunt-image-resize');
-  grunt.renameTask('image_resize', 'imageResize');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -32,33 +30,21 @@ module.exports = function (grunt) {
     config: config,
     
     favicons: {
-          options: {
-              trueColor: true,
-              appleTouchBackgroundColor: '#bb0000',
-              coast: true,
-              windowsTile: true,
-              tileBlackWhite: false,
-              tileColor: '#bb0000',
-              html: '.tmp/index.html',
-              HTMLPrefix: '/'
-          },
-          icons: {
-              src: '<%= config.app %>/images/favicon.png',
-              dest: '<%= config.dist %>/'
-          }
+			options: {
+				trueColor: true,
+        appleTouchBackgroundColor: '#bb0000',
+        coast: true,
+        windowsTile: true,
+        tileBlackWhite: false,
+        tileColor: '#bb0000',
+        html: '.tmp/index.html',
+        HTMLPrefix: '/'
       },
-
-      image_resize: {
-          resize: {
-              options: {
-                  quality: 0.7,
-                  height: '100%',
-                  overwrite: true
-              },
-              src: '<%= config.app %>/images/*.{jpg,jpeg}',
-              dest: '<%= config.dist %>/images/'
-          }
-      },
+      icons: {
+        src: '<%= config.app %>/images/favicon.png',
+        dest: '<%= config.dist %>/'
+      }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -363,11 +349,9 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '.',
           dest: '<%= config.dist %>/styles/fonts',
-          src: [
-            'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-            'bower_components/font-awesome/fonts/*.*',
-            'bower_components/roboto-fontface/fonts/*.*'
-            ]
+          src: ['bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*.*',
+               'bower_components/font-awesome/fonts/*.*',
+               'bower_components/roboto-fontface/fonts/*.*']
         }]
       },
       styles: {
@@ -381,13 +365,13 @@ module.exports = function (grunt) {
         expand: true,
         flatten: true,
         dot: true,
-        cwd: '',
+        cwd: '.',
         dest: '.tmp/styles/fonts',
         src: [
-          'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          'bower_components/font-awesome/fonts/*.*',
-          'bower_components/roboto-fontface/fonts/*.*'
-           ]
+            'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*.*',
+            'bower_components/font-awesome/fonts/*.*',
+            'bower_components/roboto-fontface/fonts/*.*'
+        ]
       }
     },
 
@@ -472,7 +456,6 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'concurrent:dist',
-    'image_resize',
     'useminPrepare',
     'autoprefixer',
     'concat',
