@@ -6,7 +6,23 @@
   <title>inadcodDesign</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
@@ -416,39 +432,49 @@
           <p>The easiest way to reach me is by info@inadcod.com, or use the <a href="#contactForm">form</a> below.
             <br />Please point out your goals, deadlines and estimated budget, so that it is easier to follow up on your idea.
             <br />I will get back to you in less than 24 hours, and we can continue discussing the details.</p>
-          <p>You can also find me on <a href="#">skype</a>, <a href="#">facebook</a>, <a href="#">linkedin</a>, or on <a href="#">tweeter</a>.</p>
+          <p>You can also find me on <a href="skype:daniel.codrea?call">skype</a>, <a href="https://www.facebook.com/daniel.codrea">facebook</a>, <a href="https://www.linkedin.com/in/danielcodrea">linkedin</a>, or on <a href="https://twitter.com/inadcod">twitter</a>.</p>
           <p>&nbsp;</p>
-          <form id="contactForm" class="form-horizontal" method="post" action="send_mail.php">
+          <form id="contactForm" class="form-horizontal" method="post" name="contactForm">
             <div class="form-group">
-              <label for="visitorName" class="col-sm-2 control-label">Name *</label>
+              <label for="name" class="col-sm-2 control-label">Name *</label>
               <div class="col-sm-10 col-md-6">
-                <input type="text" class="form-control" id="visitorName" name="visitorName" placeholder="Full name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Full name" required />
               </div>
             </div>
             <div class="form-group">
-              <label for="visitorEmail" class="col-sm-2 control-label">Email *</label>
+              <label for="email" class="col-sm-2 control-label">Email *</label>
               <div class="col-sm-10 col-md-6">
-                <input type="email" class="form-control" id="visitorEmail" name="visitorEmail" placeholder="Email address">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" required />
               </div>
             </div>
             <div class="form-group">
-              <label for="visitorPhone" class="col-sm-2 control-label">Phone</label>
+              <label for="phone" class="col-sm-2 control-label">Phone</label>
               <div class="col-sm-10 col-md-6">
-                <input type="text" class="form-control" id="visitorPhone" name="visitorPhone" placeholder="Phone number">
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone number" />
               </div>
             </div>
             <div class="form-group">
-              <label for="visitorMessage" class="col-sm-2 control-label">Message *</label>
+              <label for="message" class="col-sm-2 control-label">Message *</label>
               <div class="col-sm-10">
-                <textarea class="form-control" id="visitorMessage" placeholder="Message content" name="visitorMessage" rows="5"></textarea>
+                <textarea class="form-control" id="message" placeholder="Message content" name="message" rows="5" required></textarea>
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Send</button>
+                <button type="submit" id="submit" name="submit" class="btn btn-default">Send</button>
               </div>
             </div>
           </form>
+					<div id="success" class="col-sm-offset-2 col-sm-10">
+						<span>
+							<p>Your message was sent succssfully! I will be in touch as soon as I can.</p>
+						</span>
+					</div>
+					<div id="error" class="col-sm-offset-2 col-sm-10">
+						<span>
+							<p>Something went wrong, try refreshing and submitting the form again.</p>
+						</span>
+					</div>
         </div>
       </div>
     </div>
@@ -481,6 +507,9 @@
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
+		
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -496,7 +525,7 @@
       e.src = '//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e, r)
     }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
+    ga('create', 'UA-20924268-2');
     ga('send', 'pageview');
   </script>
 

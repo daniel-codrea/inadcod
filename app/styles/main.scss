@@ -495,6 +495,42 @@ section {
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.95);
     font-weight: 700;
   }
+	form {
+		label.error {
+			margin-bottom:10px;
+			font-size:12px;
+			line-height:12px;
+			color:#c0392b;
+		}
+		input[type="text"], input[type="email"], textarea {
+			&:focus {
+				border-color:#191919;
+				box-shadow:none;
+			}
+			&:disabled {
+				background:#fff
+			}
+			&.error {
+				background:#e6e6e6;
+				border-color:#c0392b
+			}
+		}
+	}
+	#success, #error {
+		display: none;
+    span {
+			display:block;
+			p {
+    		margin-top:20px
+			}
+		}
+	}
+	#success span p {
+  	color:#fff;
+	}
+	#error span p {
+  	color:#c0392b;
+	}
 }
 
 /* Responsive: Portrait tablets and up */
